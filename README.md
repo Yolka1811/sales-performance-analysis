@@ -1,19 +1,19 @@
-# 📊 Sales Performance Analysis
+# Sales Performance Analysis
 
-## 📌 Project Overview
-This project analyzes daily sales performance by product category.  
-The goal is to understand revenue dynamics and short-term trends.
+## Project Overview
+I analyzed a sales dataset for three days.  
+The goal was to understand daily revenue and short-term changes.
 
-The analysis includes:
+I focused on:
 - Daily revenue calculation
-- Average revenue comparison
+- Average daily revenue by category
 - Deviation from average (%)
 - Short-term trend detection
 
 ---
 
-## 📂 Dataset
-Table: `sales`
+## Dataset
+Table: sales
 
 Columns:
 - sale_date – Date of sale
@@ -24,51 +24,39 @@ Columns:
 
 ---
 
-## 🎯 Business Questions
+## Business Questions
 1. What is the daily revenue by category?
-2. What is the average daily revenue for each category?
-3. How much does each day deviate from the average revenue?
+2. What is the average daily revenue?
+3. How much does each day differ from the average?
 4. Does revenue increase or decrease compared to the previous day?
 
 ---
 
-## 🧠 Analytical Approach
+## Approach
 
-Daily revenue is calculated as:
+First, I calculated daily revenue using:
+
 SUM(price * quantity)
 
+Then, I used a window function to calculate the average revenue for each category without grouping the table.
 
-To compare each day with the category average, a window function is used:
-AVG(daily_revenue) OVER (PARTITION BY category)
-
-
-Short-term trends are analyzed using:
-LAG(daily_revenue)
-
-
-Trend direction logic:
-- 1 → growth
-- -1 → decline
-- 0 → no change
+To check the trend, I used LAG to compare each day with the previous day:
+- 1 = growth
+- -1 = decline
+- 0 = no change
 
 ---
 
-## ⚠️ Data Limitations
-The dataset covers a short time period.  
-Trend conclusions are limited and should be interpreted carefully.  
-A longer time range would provide more reliable insights.
+## Data Limitation
+The dataset includes only a few days.  
+Because of this, we cannot make strong conclusions about long-term trends.  
+For better analysis, we need more data.
 
 ---
 
-## 🛠️ SQL Techniques Used
-- CTE (Common Table Expressions)
-- Aggregation (SUM)
-- Window functions (AVG OVER, LAG)
-- CASE WHEN logic
-
----
-
-## ✅ Key Takeaways
-- Revenue fluctuates around the category average.
-- Short-term growth and decline patterns are visible.
-- Reliable trend analysis requires a larger dataset.
+## SQL Skills Used
+- CTE
+- SUM
+- AVG OVER
+- LAG
+- CASE WHEN
