@@ -63,6 +63,13 @@ Therefore, this project demonstrates SQL techniques rather than long-term busine
 ## SQL Skills Used
 
 - CTE
-- Aggregate Functions (`SUM`)
+- Aggregate Functions (`SUM()`)
 - Window Functions (`AVG() OVER`, `LAG()`)
 - `CASE WHEN`
+
+## Business Skills Demonstrated
+
+- Revenue Analysis
+- Trend Analysis
+- Performance Monitoring
+- Variance Analysis
