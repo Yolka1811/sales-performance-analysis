@@ -1,10 +1,10 @@
 # Sales Performance Analysis
 
 ## Project Overview
-I analyzed a sales dataset for three days.  
-The goal was to understand daily revenue and short-term changes.
 
-I focused on:
+This project analyzes daily sales performance across product categories. The analysis focuses on revenue trends, deviations from average performance, and short-term revenue changes.
+
+The project includes:
 - Daily revenue calculation
 - Average daily revenue by category
 - Deviation from average (%)
@@ -13,22 +13,24 @@ I focused on:
 ---
 
 ## Dataset
-Table: sales
 
-Columns:
-- sale_date – Date of sale
-- category – Product category
-- product – Product name
-- price – Unit price
-- quantity – Quantity sold
+**Table:** `sales`
+
+**Columns:**
+- `sale_date` – Date of sale
+- `category` – Product category
+- `product` – Product name
+- `price` – Unit price
+- `quantity` – Quantity sold
 
 ---
 
 ## Business Questions
-1. What is the daily revenue by category?
-2. What is the average daily revenue?
-3. How much does each day differ from the average?
-4. Does revenue increase or decrease compared to the previous day?
+
+- What is the daily revenue by category?
+- What is the average daily revenue by category?
+- How does each day differ from the average?
+- Did revenue increase or decrease compared to the previous day?
 
 ---
 
@@ -36,27 +38,31 @@ Columns:
 
 First, I calculated daily revenue using:
 
+```sql
 SUM(price * quantity)
+```
 
-Then, I used a window function to calculate the average revenue for each category without grouping the table.
+Then, I used a window function to calculate the average daily revenue for each category.
 
-To check the trend, I used LAG to compare each day with the previous day:
-- 1 = growth
-- -1 = decline
-- 0 = no change
+To identify short-term trends, I used `LAG()` to compare revenue with the previous day:
+
+- `1` – Growth
+- `-1` – Decline
+- `0` – No change
 
 ---
 
 ## Data Limitation
-The dataset includes only a few days.  
-Because of this, we cannot make strong conclusions about long-term trends.  
-For better analysis, we need more data.
+
+The dataset covers only three days.
+
+Therefore, this project demonstrates SQL techniques rather than long-term business insights.
 
 ---
 
 ## SQL Skills Used
+
 - CTE
-- SUM
-- AVG OVER
-- LAG
-- CASE WHEN
+- Aggregate Functions (`SUM`)
+- Window Functions (`AVG() OVER`, `LAG()`)
+- `CASE WHEN`
