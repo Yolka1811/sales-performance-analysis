@@ -42,7 +42,7 @@ First, I calculated daily revenue using:
 SUM(price * quantity)
 ```
 
-Then, I used a window function to calculate the average daily revenue for each category.
+Next, I used a window function to calculate the average daily revenue for each category.
 
 To identify short-term trends, I used `LAG()` to compare revenue with the previous day:
 
